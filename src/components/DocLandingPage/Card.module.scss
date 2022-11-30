@@ -1,0 +1,88 @@
+.spaceBetween{
+    display: flex;
+    flex-flow: row wrap;
+    // justify-content: space-between;
+    
+    a:hover {
+        text-decoration: none;
+    }
+}
+.tutorialCard{
+    border-radius: 8px;
+    padding: 24px;
+    margin: 0 2.75% 30px 0;
+    width: 30.5%;
+    font-family: 'Inter';
+    border: 1px solid #D9DAE5;
+    position: relative;
+    h4{
+        font-weight: 600;
+        font-size: 16px;
+        font-family: 'Inter';
+        line-height: 24px;
+        color: #000000;     
+    }
+    p{
+        font-weight: 400;
+        font-size: 12px;
+        font-family: 'Inter';
+        color: #22222A;
+    }
+    h5{
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+    .docsCard{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+    }
+    a{
+        color: #000000;
+    }
+}
+.ci:hover, .cd:hover, .ff:hover, .ccm:hover, .srm:hover, .sto:hover, .ce:hover, .platform:hover {
+    border: 3px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+}
+.cd:hover{
+    border-image-source: linear-gradient(to left, rgba(98, 249, 31, 1), rgba(69, 189, 53, 1));
+}
+.ci:hover{
+    border-image-source: linear-gradient(to left, rgba(115, 223, 231, 1), rgba(0, 149, 247, 1));
+}
+.ff:hover{
+    border-image-source: linear-gradient(to left, rgba(255, 193, 0, 1), rgba(230, 107, 53, 1));
+}
+.ccm:hover{
+    border-image-source: linear-gradient(to left, rgba(0, 207, 222, 1), rgba(5, 166, 96, 1));
+}
+.srm:hover{
+    border-image-source: linear-gradient(to left, rgba(190, 161, 255, 1), rgba(138, 54, 255, 1));
+}
+.sto:hover{
+    border-image-source: linear-gradient(to left, rgba(71, 145, 255, 1), rgba(46, 28, 243, 1));
+}
+.ce:hover{
+    border-image-source: linear-gradient(to left, rgba(255, 111, 171, 1), rgba(206, 0, 86, 1));
+}
+.platform:hover{
+    border-image-source: linear-gradient(to left, var(--primary-5), var(--primary-7));
+}
+
+@media screen and (max-width: 768px) {
+    .tutorialCard{
+        width: 47%;
+    }
+}
+
+@media screen and (max-width: 393px) {
+    /* for mobile */
+    .tutorialCard{
+        width: unset;
+    }
+}

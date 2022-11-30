@@ -11,3 +11,4 @@ title: Manage Cloud Costs
 import CloudCostManagement from '@site/src/components/LandingPage/CloudCostManagement';
 
 <CloudCostManagement />
+<CloudCostManagement />
