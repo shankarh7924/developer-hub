@@ -1,7 +1,7 @@
 ---
 title: Availability and Scope of Harness Variables
 description: Variables used in Harness have a naming convention and scope depending on their type.
-# sidebar_position: 2
+sidebar_position: 30
 helpdocs_topic_id: d15of30a2i
 helpdocs_category_id: 9lw749jubn
 helpdocs_is_private: false
@@ -14,12 +14,6 @@ For example, an account-level variable created in **Account Defaults** begins wi
 
 Whenever you have a Harness field that permits variables, begin by typing `${` and the variables available to that entity are displayed.
 
-In this topic:
-
-* [Naming Conventions](#naming_conventions)
-* [Multi-Phase Workflows and Variable Availability](#multi_phase_workflows_and_variable_availability)
-* [Scope of Variables](#scope_of_variables)
-* [Related Reference Material](#related_reference_material)
 
 ### Naming Conventions
 

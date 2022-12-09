@@ -1,7 +1,7 @@
 ---
 title: What is a Harness Variable Expression?
 description: Find a variable for most Harness settings and deployment information.
-# sidebar_position: 2
+sidebar_position: 2
 helpdocs_topic_id: 9dvxcegm90
 helpdocs_category_id: 9lw749jubn
 helpdocs_is_private: false
@@ -115,21 +115,28 @@ Account Defaults are account-level variables available to all users logged into 
 To create an Account Default variable, do the following:
 
 1. Log into Harness, and then click **Setup**.
-2. Click the More Options ⋮ menu next to **Account**, and then click **Account Defaults**.![](./static/variables-19.png)
-![](./static/variables-20.png)
+2. Click the More Options ⋮ menu next to **Account**, and then click **Account Defaults**.
+
+   ![](./static/variables-19.png)
+
+   ![](./static/variables-20.png)
 
 3. Click **Add Row**. A new row appears.![](./static/variables-21.png)
 
 4. In **Name**, enter a name for the variable. Ensure that the name is descriptive, as users will be looking at a list of variable names and will need to distinguish between them.
 5. In **Type**, select **STRING**.
-6. In **Value**, enter the value for the variable. For example, if you added an Account Default variable for **productName**, the dialog would look like this:![](./static/variables-22.png)
+6. In **Value**, enter the value for the variable. For example, if you added an Account Default variable for **productName**, the dialog would look like this:
+
+   ![](./static/variables-22.png)
 
 7. Click **SUBMIT**. The new variable is added.  
   
-Now, let's reference the variable.
+   Now, let's reference the variable.
 
 1. Open a Harness Application, and then open a Service, such as Docker or Pivotal Cloud Foundry (PCF) Service within that Application.
-2. In the Service, under **Configuration**, click **Add Variable**. The **Config Variable** dialog appears.![](./static/variables-23.png)
+2. In the Service, under **Configuration**, click **Add Variable**. The **Config Variable** dialog appears.
+
+   ![](./static/variables-23.png)
 
 3. In **Value**, enter `${account.defaults}` to see the account variables displayed.![](./static/variables-24.png)
 

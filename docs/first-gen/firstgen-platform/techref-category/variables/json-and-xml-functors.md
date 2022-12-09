@@ -1,7 +1,7 @@
 ---
 title: JSON and XML Functors
 description: Harness includes JSON and XML functors you can use to select contents from JSON and XML sources.
-# sidebar_position: 2
+sidebar_position: 40
 helpdocs_topic_id: wfvecw3yod
 helpdocs_category_id: 9lw749jubn
 helpdocs_is_private: false
@@ -10,11 +10,11 @@ helpdocs_is_published: true
 
 Harness includes JSON and XML functors you can use to select contents from JSON and XML sources. These functors reduce the amount of shell scripting needed to pull JSON and XML information into your Harness Workflow steps.
 
-### JSON Functor
+## JSON Functor
 
 The JSON functor uses the JSON library [JsonPath](https://github.com/json-path/JsonPath). The JSON functor methods are described below.
 
-#### jsonpath()
+### jsonpath()
 
 * **Syntax:** `${jsonpath('string.string')}`
 * **Description:** Select attribute values in a path.
@@ -45,12 +45,13 @@ We'll use the the expression `${jsonpath('books[0].isbn')} == "9781593275846"` t
 Here is the HTTP step configured to compare in the **Assertion** setting:
 
 ![](./static/json-and-xml-functors-05.png)
+
 Here is the Harness deployment result with the successful comparison:
 
 ![](./static/json-and-xml-functors-06.png)
 
 
-#### select()
+### select()
 
 * **Syntax:** `select(string, string)`
 * **Description:** Select attribute values using a path.
@@ -84,6 +85,7 @@ The `httpResponseBody` argument is used to indicate that we want to select the p
 A common use of `select()` is in an HTTP command in a Workflow. For example, the following HTTP command uses a variable named **FIELD** in **Name** and the `select()` method in **Expression** to obtain the value `0.0.253-feature_NC-6595.8d268cd~nc1.6312a66` from the HTTP response payload at the URL specified in **URL**.
 
 ![](./static/json-and-xml-functors-07.png)
+
 The value returned by the expression is stored in the variable **FIELD**.
 
 In **Publish Variable Name**, the variable **VARS** is used to store the value of **FIELD** (the value obtained by the expression). The value for **FIELD** can now be referenced elsewhere in the Workflow using `${VARS.FIELD}`.
@@ -91,12 +93,13 @@ In **Publish Variable Name**, the variable **VARS** is used to store the value o
 When this HTTP command is deployed, **Deployments** will display the HTTP response:
 
 ![](./static/json-and-xml-functors-08.png)
+
 If you echo the `${VARS.FIELD}` output variable in a successive Shell Script command, you will get the output of the `select()` expression stored in `FIELD`:
 
 ![](./static/json-and-xml-functors-09.png)
 
 
-##### Conditional Expressions with Select
+#### Conditional Expressions with Select
 
 Using JSON PATH syntax, you can perform conditional expressions such as:
 
@@ -108,7 +111,7 @@ ${json.select("fileList[?(@.fileData.minorType == 'ZIP')].fileData.downloadLink"
 ```
 There are some useful path examples in [JsonPath](https://github.com/json-path/JsonPath#path-examples) in GitHub.
 
-#### object()
+### object()
 
 * **Syntax:** `object(string)`
 * **Description:** Selects objects from a JSON collection.
@@ -143,7 +146,7 @@ When the Workflow is deployed, the result is:
 ```
 JSON object:  value1
 ```
-#### list()
+### list()
 
 * **Syntax:** `list(string, string)`
 * **Description:** Returns list object.
@@ -208,6 +211,7 @@ ${json.list("books", httpResponseBody).get(2).pages}
 We can add the `list()` method to an HTTP step and output it using **Publish Variable Name**:
 
 ![](./static/json-and-xml-functors-11.png)
+
 Next, we reference the output variable in a Shell Script step:
 
 
@@ -220,7 +224,7 @@ When the Workflow is deployed, the result is:
 ```
 JSON list:  460
 ```
-#### format()
+### format()
 
 * **Syntax:** `format(object)`
 * **Description:** Format the array passed as the string value in JSON format.
@@ -231,8 +235,8 @@ JSON list:  460
 We add a variable to the HTTP step that contains the `${httpResponseBody}` variable and then pass the response in the output variable named `BODY`.
 
 ![](./static/json-and-xml-functors-12.png)
-If we simply render the `${VARS.BODY}` expression variable we get:
 
+If we simply render the `${VARS.BODY}` expression variable we get:
 
 ```
 {data:{attributes:name:new-construction-api}} {data:{attributes:version_pins:{mvn-service://new-construction-api:0.0.253-feature_NC-6595.8d268cd~nc1.6312a66}}}
@@ -258,11 +262,13 @@ If you formatted this with common JSON indentation it would look like this:
   }  
 }
 ```
-If you echo using `json.format()` and `double quotes` ensure that any double quotes in the JSON are escaped. Another option is to use echo with single quotes. This is standard Bash functionality.### XML Functor
+If you echo using `json.format()` and `double quotes` ensure that any double quotes in the JSON are escaped. Another option is to use echo with single quotes. This is standard Bash functionality.
+
+## XML Functor
 
 The [XPath](https://developer.mozilla.org/en-US/docs/Web/XPath) functor has one method: `xml.select()`.
 
-#### select()
+### select()
 
 * **Syntax:** `xml.select(string, string)`
 * **Description:** Returns XML file.
@@ -315,6 +321,7 @@ ${xml.select("/bookstore/book[1]/title", httpResponseBody)}
 We can add the `xml.select()` method to an HTTP step and output it using **Publish Variable Name**:
 
 ![](./static/json-and-xml-functors-13.png)
+
 Next, we reference the output variable in a Shell Script step:
 
 
