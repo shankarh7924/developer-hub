@@ -1,7 +1,7 @@
 ---
 title: Kubernetes Versioning and Annotations
 description: How Harness tracks Kubernetes deployment releases and applies labels during deployments.
-# sidebar_position: 2
+sidebar_position: 10
 helpdocs_topic_id: ttn8acijrz
 helpdocs_category_id: yp3yaavhla
 helpdocs_is_private: false

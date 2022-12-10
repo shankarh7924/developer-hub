@@ -1,7 +1,7 @@
 ---
 title: Install Workflow Step
 description: The Install step runs the command scripts in your Harness SSH and IIS Services on the target host. In this topic --  Summary. Not Seeing the Install Step in a Workflow?. Name. Command. Timeout. Related…
-# sidebar_position: 2
+sidebar_position: 10
 helpdocs_topic_id: 2q8vjxdjcq
 helpdocs_category_id: idvvqrrfr9
 helpdocs_is_private: false
@@ -10,14 +10,6 @@ helpdocs_is_published: true
 
 The Install step runs the command scripts in your Harness SSH and IIS Services on the target host.
 
-In this topic:
-
-* [Summary](#summary)
-* [Not Seeing the Install Step in a Workflow?](#not_seeing_the_install_step_in_a_workflow)
-* [Name](#name)
-* [Command](#command)
-* [Timeout](#timeout)
-* [Related Reference Material](#related_reference_material)
 
 ### Summary
 
@@ -45,9 +37,11 @@ For SSH Services using the **Docker Image** artifact type, the Install command i
 To overcome this limitation, in the SSH Service using the Docker Image artifact type, click **Add Command**, and then select **Install** in **Command Type**.
 
 ![](./static/install-workflow-step-08.png)
+
 Next, in the **Install** command you just added to the Service, click **Add**, and select a Docker script.
 
 ![](./static/install-workflow-step-09.png)
+
 Now, when you use this Service to a Workflow, the **Install** step is added to the Workflow.
 
 ### Name

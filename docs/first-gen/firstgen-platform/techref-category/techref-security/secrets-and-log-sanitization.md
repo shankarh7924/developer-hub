@@ -8,13 +8,21 @@ helpdocs_is_private: false
 helpdocs_is_published: true
 ---
 
-This content is for Harness [FirstGen](../../../../getting-started/harness-first-gen-vs-harness-next-gen.md). Switch to [NextGen](https://docs.harness.io).Harness sanitizes deployment logs and any script outputs to mask text secret values.
+:::note
+This content is for Harness [FirstGen](../../../../getting-started/harness-first-gen-vs-harness-next-gen.md). Switch to [NextGen](https://docs.harness.io).
+:::
+
+Harness sanitizes deployment logs and any script outputs to mask text secret values.
 
 First, let's review secrets in Harness, and then look at how Harness sanitizes logs and outputs to prevent secrets from being exposed.
 
 ### Review: Secrets in Harness
 
-The following information is also covered in [What is Secrets Management?](../../security/secrets-management/secret-management.md).You can create secrets in Harness as described in
+:::note
+The following information is also covered in [What is Secrets Management?](../../security/secrets-management/secret-management.md).
+:::
+
+You can create secrets in Harness as described in
 
 * [Use Encrypted Text Secrets](../../security/secrets-management/use-encrypted-text-secrets.md)
 * [Use Encrypted File Secrets](../../security/secrets-management/use-encrypted-file-secrets.md)
@@ -25,7 +33,9 @@ For text and file secrets, the secrets are stored in the Secrets Manager you sel
 
 Once a secret is added, you can then reference a secret in Harness Connectors and other Harness settings, such as Service specifications and commands, and scripts in a Workflow.
 
+:::note
 You can also create text and file secrets in a Service **Configuration** section.You reference a text secret in a script using the expression `${secrets.getValue("secret_name")}`.
+:::
 
 You can reference a file secret using the expression `${configFile.getAsBase64("secret_name")}` or `${configFile. getAsString("secret_name")}`.
 
@@ -39,7 +49,11 @@ Harness sends only encrypted data to the Secrets Manager, as follows: 
 3. The Delegate exchanges a key pair with the secrets manager, over an encrypted connection.
 4. The Harness Delegate uses the encrypted key and the encrypted secret, and then discards them. The keys never leave the Delegate.
 
-Any secrets manager requires a running Harness Delegate to encrypt and decrypt secrets. Any Delegate that references a secret requires direct access to the secrets manager.You can manage your secrets in Harness using either a Key Management Service or third party Secrets Managers.
+:::note 
+Any secrets manager requires a running Harness Delegate to encrypt and decrypt secrets. Any Delegate that references a secret requires direct access to the secrets manager.
+:::
+
+You can manage your secrets in Harness using either a Key Management Service or third party Secrets Managers.
 
 ### Sanitization
 
@@ -63,7 +77,9 @@ Command completed with ExitCode (0)
 ```
 You can also reference the encrypted text used in a Service's **Config Variables** in the Workflow using the Service with the variable `${serviceVariable.var_name}`.
 
+:::note
 File secrets are not masked in Harness logs. As noted above they can be encoded in different formats, but they are not masked from users.
+:::
 
 #### Quotes and Secrets in a Script
 
@@ -71,7 +87,11 @@ By default, secret expressions use quotes for the secret name: `${secrets.getVal
 
 If the secret value itself includes quotes, either single or double, and anywhere in the secret value, you must use the opposite quote when you use the expression in a script (echo, etc).
 
-If you do not use the opposite quote you will expose the secret value.Single quote example:
+:::danger
+If you do not use the opposite quote, you will expose the secret value.
+:::
+
+Single quote example:
 
 Here, the secret value is `'mysecret'` and the name is `secret_name`. To echo, use double quotes:
 
@@ -85,9 +105,11 @@ Here, the secret value is `"mysecret"` and the name is `secret_name` .
 
 `echo '${secrets.getValue('secret_name')}'`
 
+:::danger
 Avoid using `$` in your secret value. If your secret value includes `$`, you must use single quotes when you use the expression in a script.  
 For example, if your secret value is `'my$secret'` , and the name is `secret_name`, to echo, use single quotes:  
  `echo '${secrets.getValue("secret_name")}'`
+:::
 
 #### Kubernetes Secret Objects
 
@@ -110,8 +132,8 @@ type: kubernetes.io/dockercfg
 ---  
 {{- end}}
 ```
-Here is the deployed Secret in the log:
 
+Here is the deployed Secret in the log:
 
 ```
 apiVersion: v1  
@@ -142,7 +164,6 @@ The log sanitizer detects only exact matches of the secret or any line of the se
 The log sanitizer only works on secrets that are three characters or longer.
 
 If the secret value is `ab`, then the log will show:
-
 
 ```
 Executing command ...  

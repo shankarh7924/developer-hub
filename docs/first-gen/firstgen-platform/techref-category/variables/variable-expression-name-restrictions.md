@@ -1,7 +1,7 @@
 ---
 title: Variable Expression Limitations and Restrictions
 description: The following limitations and restrictions apply to Harness variable expressions. For general details about Harness variable expressions, see --  What is a Harness Variable Expression?. Built-in Variabl…
-# sidebar_position: 2
+sidebar_position:  60
 helpdocs_topic_id: 9ob3r6v9tg
 helpdocs_category_id: 9lw749jubn
 helpdocs_is_private: false

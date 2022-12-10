@@ -1,7 +1,7 @@
 ---
 title: Variable Override Priority
 description: Harness provides builtin and custom variables, as described in What is a Harness Variable Expression?. You can override a lot of variable values in order to templatize and customize deployment settin…
-# sidebar_position: 2
+sidebar_position: 40
 helpdocs_topic_id: benvea28uq
 helpdocs_category_id: 9lw749jubn
 helpdocs_is_private: false
@@ -16,19 +16,6 @@ These overrides have priority. For example, you can override a Service variable 
 
 In this topic, we explain how Harness prioritizes variable overrides. Hopefully, this will help you manage your variables more effectively.
 
-In this topic:
-
-* [Before You Begin](#before_you_begin)
-* [Where are Variables Overridden?](#where_are_variables_overridden)
-	+ [Service Configuration Overrides](#service_configuration_overrides)
-	+ [Overriding Service Variables in Workflows](#overriding_service_variables_in_workflows)
-		- [Use Workflow Variables in the Service Settings](#use_workflow_variables_in_the_service_settings)
-		- [Use Service Variable Overrides in a Workflow Phase](#use_service_variable_overrides_in_a_workflow_phase)
-* [Overrides Are at the Key:Value Level Not the File Level](#overrides_are_at_the_key_value_level_not_the_file_level)
-* [In What Order are Variables Overridden?](#in_what_order_are_variables_overridden)
-* [Overriding and Merging Values YAML, Manifests, Charts etc in Environments](#overriding_and_merging_values_yaml_manifests_charts_etc_in_environments)
-* [Other Service Configuration Types](#other_service_configuration_types)
-* [See Also](#see_also)
 
 ### Before You Begin
 
@@ -81,16 +68,24 @@ Here is how Harness prioritizes variables, from highest to least priority:
 1. Highest: Workflow variable or Workflow Phase Service Variable Overrides. See [Set Workflow Variables](../../../continuous-delivery/model-cd-pipeline/workflows/add-workflow-variables-new-template.md).  
 **Pipelines**—If the Workflow is executed by a Pipeline, the value provided for the Workflow variable in the Pipeline has the highest priority.
 2. Next: Environment Service Configuration Overrides.  
-See [Override a Service Configuration in an Environment](../../../continuous-delivery/model-cd-pipeline/environments/override-service-files-and-variables-in-environments.md).  
-This can be either of the following:
-	1. An override of a single Service Config Variable.
-	2. An override of all Service Config Variables.
+
+   See [Override a Service Configuration in an Environment](../../../continuous-delivery/model-cd-pipeline/environments/override-service-files-and-variables-in-environments.md).  
+   
+	 This can be either of the following:
+
+	 - An override of a single Service Config Variable.
+	 
+	 - An override of all Service Config Variables.
+	 
 3. Last: Service Config Variables. See [Add Service Config Variables](../../../continuous-delivery/model-cd-pipeline/setup-services/add-service-level-config-variables.md).
 
 Put simply:
 
 ![](./static/variable-override-priority-01.png)
-At the Environment-level, you can override a variable for **All Services** or a specific Service. If you override for All Services but then also override for a specific Service, the override for the specific Service is used for that Service+Environment combination.### Overriding and Merging Values YAML, Manifests, Charts etc in Environments
+
+At the Environment-level, you can override a variable for **All Services** or a specific Service. If you override for All Services but then also override for a specific Service, the override for the specific Service is used for that Service+Environment combination.
+
+### Overriding and Merging Values YAML, Manifests, Charts etc in Environments
 
 In addition to overriding Service text and file variables, you can override or merge new values for the Values YAML, manifest files, Helm charts, and OpenShift Params in a Harness Service (Kubernetes, Helm, Tanzu).
 

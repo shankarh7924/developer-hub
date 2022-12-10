@@ -1,7 +1,7 @@
 ---
 title: Kubernetes Rollback
 description: If a Harness Kubernetes deployment fails, Harness will rollback to the last successful version of your workload. Please review the Kubernetes Versioning and Annotations topic. It explains how Harness…
-# sidebar_position: 2
+sidebar_position: 50
 helpdocs_topic_id: v41e8oo00e
 helpdocs_category_id: yp3yaavhla
 helpdocs_is_private: false
@@ -10,7 +10,9 @@ helpdocs_is_published: true
 
 If a Harness Kubernetes deployment fails, Harness will rollback to the last successful version of your workload.
 
+:::note 
 Please review the [Kubernetes Versioning and Annotations](versioning-and-annotations.md) topic. It explains how Harness names and versions Kubernetes releases.
+:::
 
 ### Identifying Deployments for Rollback
 
@@ -30,7 +32,11 @@ Rollback fetches the last successful deployment with the current Workflow Id and
 
 ### Rollback with Any Workflow and Infrastructure Mapping
 
-Currently, this feature is behind the feature flag `INFRA_MAPPING_BASED_ROLLBACK_ARTIFACT`. Contact [Harness Support](mailto:support@harness.io) to enable the feature.In some cases, you might want to run multiple Workflows with the same Infrastructure Mapping (Service Id, Infrastructure Id, Cluster Name, and Namespace), but not tie the rollback artifact to a specific Workflow Id.
+:::note 
+Currently, this feature is behind the feature flag `INFRA_MAPPING_BASED_ROLLBACK_ARTIFACT`. Contact [Harness Support](mailto:support@harness.io) to enable the feature.
+:::
+
+In some cases, you might want to run multiple Workflows with the same Infrastructure Mapping (Service Id, Infrastructure Id, Cluster Name, and Namespace), but not tie the rollback artifact to a specific Workflow Id.
 
 Instead, you want to tie the rollback artifact to just the Infrastructure Mapping because multiple Workflows are using that Infrastructure Mapping.
 

@@ -1,7 +1,7 @@
 ---
 title: ECS Rollbacks
 description: This topic describes how Harness ECS deployments perform rollback in the case of deployment failures. For information ECS deployments, see AWS ECS Quickstart and AWS ECS Deployments Overview. In this…
-# sidebar_position: 2
+sidebar_position: 40
 helpdocs_topic_id: d7rnemtfuz
 helpdocs_category_id: yp3yaavhla
 helpdocs_is_private: false
@@ -10,18 +10,7 @@ helpdocs_is_published: true
 
 This topic describes how Harness ECS deployments perform rollback in the case of deployment failures.
 
-For information ECS deployments, see [AWS ECS Quickstart](https://docs.harness.io/article/j39azkrevm-aws-ecs-deployments) and [AWS ECS Deployments Overview](../../../../continuous-delivery/concepts-cd/deployment-types/aws-ecs-deployments-overview.md).In this topic:
-
-* [Rollback Summary](#rollback_summary)
-	+ [Rollback All Phases at Once](#rollback_all_phases_at_once)
-* [Rollbacks with Auto Scaling](#rollbacks_with_auto_scaling)
-	+ [Multi-Phase Task Upscale is Incremental](#multi_phase_task_upscale_is_incremental)
-	+ [Rollback](#rollback)
-	+ [Don't Want a Previous ASG Downsized?](#don_t_want_a_previous_asg_downsized)
-* [Post-Production Rollback](#post_production_rollback)
-* [Rollback Order in Multi-Phase Workflow](#rollback_order_in_multi_phase_workflow)
-* [Upgrade Containers and Rollback Containers Steps are Dependent](#upgrade_containers_and_rollback_containers_steps_are_dependent)
-* [Rollback when Auto Scaling is Enabled](#rollback_when_auto_scaling_is_enabled)
+For information ECS deployments, see [AWS ECS Quickstart](https://docs.harness.io/article/j39azkrevm-aws-ecs-deployments) and [AWS ECS Deployments Overview](../../../../continuous-delivery/concepts-cd/deployment-types/aws-ecs-deployments-overview.md).
 
 ### Rollback Summary
 
@@ -117,21 +106,28 @@ In order for rollback to add ECS Auto Scaling to the previous, successful servic
 ![](./static/ecs-rollback-06.png)
 Since ECS Auto Scaling is added by the **Upgrade Containers** step, if you delete **Upgrade Containers**, then **Rollback Containers** has no ECS Auto Scaling to roll back to.
 
+:::note
 If you want to remove ECS Auto Scaling from a Phase, delete both the **Upgrade Containers** and **Rollback Containers** steps. The Phase will no longer perform ECS Auto Scaling during deployment or rollback.
+:::
 
 ### Rollback when Auto Scaling is Enabled
 
 In Harness, you configure [ECS Service Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html) in the **ECS Service Setup** step of a Workflow, and it is applied in the last **Upgrade Containers** step in the Workflow.
 
-Here is the **ECS Service Setup** step where to define ECS Auto Scaling:
+Here is the **ECS Service Setup** step to define ECS Auto Scaling:
 
 ![](./static/ecs-rollback-07.png)
+
 1. In a Workflow with the **ECS Service Setup** step, open the **ECS Service Setup** step.
 2. In **Auto Scaler Configurations**, the Auto Scaling property fields appear.
 
 When Harness deploys your ECS service, it will register the service with ECS Service Auto Scaling to apply the scaling policy, scaling out (and in) using CloudWatch target tracking.
 
-In the event of deployment failure, ECS Auto Scaling is applied to the last successful service. This is performed by the Phase with both **Upgrade Containers** and **Rollback Containers** steps. Both steps must be present in the same Phase.In the event of deployment failure, Harness performs the following:
+:::note
+In the event of deployment failure, ECS Auto Scaling is applied to the last successful service. This is performed by the Phase with both **Upgrade Containers** and **Rollback Containers** steps. Both steps must be present in the same Phase.
+:::
+
+In the event of deployment failure, Harness performs the following:
 
 * By default, not all Workflow Phases are rolled back at once. You must select the **Rollback All Phases at Once** option in the **Rollback Containers** step to enable this.  
 Phases are rolled back in the standard, reverse order. For example, in a 2 Phase deployment with 2 Rollback Phases, the order is P1 → P2 → R2 → R1.

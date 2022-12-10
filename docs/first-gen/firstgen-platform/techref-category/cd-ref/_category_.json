@@ -1,12 +1,12 @@
 {
-  "label": "Continuous Deployment Ref FirstGen",
-  "position": 40,
+  "label": "Continuous Delivery Ref FirstGen",
+  "position": 60,
   "collapsible": "true",
   "collapsed": "true",
   "className": "red",
   "link": {
     "type": "generated-index",
-    "title": "Continuous Deployment Ref FirstGen"
+    "title": "Continuous Delivery Ref FirstGen"
   },
   "customProps": {
     "helpdocs_category_id": "j5mnakky2j"

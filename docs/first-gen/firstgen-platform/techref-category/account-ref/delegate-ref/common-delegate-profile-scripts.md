@@ -1,7 +1,7 @@
 ---
 title: Common Delegate Scripts
 description: Learn about Delegate Profile script availability and some common Delegate Profile scripts.
-# sidebar_position: 2
+sidebar_position: 20
 helpdocs_topic_id: nxhlbmbgkj
 helpdocs_category_id: 2p8b4otu10
 helpdocs_is_private: false
@@ -78,9 +78,11 @@ terragrunt --version
 ```
 ### Helm 2
 
-Use the following script to install Helm 2 and Tiller in the delegate cluster:
-
+Use the following script to install Helm 2 and Tiller in the delegate cluster.
+:::note
 If you are using remote Helm charts with your Harness Kubernetes Service, use the `helm init --client-only` option. For more information, see [Helm charts](https://docs.harness.io/article/t6zrgqq0ny-kubernetes-services#helm_charts).
+:::
+
 ```
 # Add the Helm version that you want to install  
 HELM_VERSION=v2.14.0  
@@ -100,13 +102,21 @@ helm init --client-only
 # If Tiller is not installed in the cluster  
 # helm init
 ```
-`DESIRED_VERSION` is used by a function in the [Helm install script](https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get).If Helm is being installed in a cluster outside of the Delegate's cluster ensure that the **kubeconfig** in the Delegate cluster is pointing to the correct cluster using:
 
+:::note
+`DESIRED_VERSION` is used by a function in the [Helm install script](https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get).
+:::
+
+If Helm is being installed in a cluster outside of the Delegate's cluster ensure that the **kubeconfig** in the Delegate cluster is pointing to the correct cluster using:
 
 ```
 kubectl config current-context cluster_name
 ```
-If you are using TLS for communication between Helm and Tiller, ensure that you use the `--tls` parameter with your commands. For more information, see **Command Flags** in [Helm Deploy step](../../../../continuous-delivery/helm-deployment/4-helm-workflows.md) in the Helm Deployment guide, and see  [Using SSL Between Helm and Tiller](https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller) from Helm, and the section **Securing your Helm Installation** in that document.Here is an example of how to add a Helm chart from a private repo using secrets `repoUsername` and `repoPassword` from Harness [Secrets Management](../../../security/secrets-management/secret-management.md).
+:::note
+If you are using TLS for communication between Helm and Tiller, ensure that you use the `--tls` parameter with your commands. For more information, see **Command Flags** in [Helm Deploy step](../../../../continuous-delivery/helm-deployment/4-helm-workflows.md) in the Helm Deployment guide, and see  [Using SSL Between Helm and Tiller](https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller) from Helm, and the section **Securing your Helm Installation** in that document.
+:::
+
+Here is an example of how to add a Helm chart from a private repo using secrets `repoUsername` and `repoPassword` from Harness [Secrets Management](../../../security/secrets-management/secret-management.md).
 
 
 ```
@@ -131,7 +141,10 @@ For more information, see [Upgrade to Helm 3 Charts in Kubernetes Services](../.
 
 ### Pip
 
+:::note
 Ensure that you run `apt-get update` before running any `apt-get` commands.
+:::
+
 ```
 apt-get update  
 # Install pip  
@@ -193,7 +206,11 @@ git --version
 ```
 ### Cloud Foundry CLI
 
-Harness supports Cloud Foundry CLI version 6 only. Support for version 7 is pending.See [Install Cloud Foundry CLI Versions on the Harness Delegate](../../../../continuous-delivery/pcf-deployments/install-cloud-foundry-cli-6-and-7-on-harness-delegates.md).
+:::note
+Harness supports Cloud Foundry CLI version 6 only. Support for version 7 is pending.
+:::
+
+See [Install Cloud Foundry CLI Versions on the Harness Delegate](../../../../continuous-delivery/pcf-deployments/install-cloud-foundry-cli-6-and-7-on-harness-delegates.md).
 
 ### Docker Installation
 

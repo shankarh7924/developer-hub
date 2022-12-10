@@ -1,7 +1,7 @@
 ---
 title: Workflow, Phase, and Step Name Restrictions
 description: Harness Workflow, phase, and step names are limited to the following characters.
-# sidebar_position: 2
+sidebar_position: 20
 helpdocs_topic_id: 3j9vt6eno6
 helpdocs_category_id: idvvqrrfr9
 helpdocs_is_private: false

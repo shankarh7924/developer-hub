@@ -1,7 +1,7 @@
 ---
 title: Harness Services Technical Reference
 description: Harness Services represent your microservices/apps. You define where the artifacts for those microservices come from, and the container specs, configuration variables, and files for those microservic…
-# sidebar_position: 2
+sidebar_position: 10
 helpdocs_topic_id: 2a0beq3sxg
 helpdocs_category_id: xbu33o5q99
 helpdocs_is_private: false

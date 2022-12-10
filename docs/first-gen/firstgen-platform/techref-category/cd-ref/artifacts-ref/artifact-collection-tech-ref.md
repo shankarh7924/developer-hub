@@ -1,7 +1,7 @@
 ---
 title: Artifact Collection Tech Ref
 description: This topic lists useful reference information for Harness artifact collection. Artifact History is Synced Every Two Hours. Harness will sync with your artifact repositories every two hours to ensure…
-# sidebar_position: 2
+sidebar_position: 10
 helpdocs_topic_id: 3rz2d3g5qu
 helpdocs_category_id: r5npnj7dwx
 helpdocs_is_private: false

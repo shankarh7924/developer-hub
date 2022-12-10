@@ -1,7 +1,7 @@
 ---
 title: ECS Auto Scaling
 description: In Harness, you configure ECS Service Auto Scaling in the ECS Service Setup step of a Workflow. In a Workflow with the ECS Service Setup step, open the ECS Service Setup step. In Auto Scaler Configur…
-# sidebar_position: 2
+sidebar_position: 20
 helpdocs_topic_id: 28ehkmqy3v
 helpdocs_category_id: yp3yaavhla
 helpdocs_is_private: false
@@ -10,8 +10,8 @@ helpdocs_is_published: true
 
 In Harness, you configure [ECS Service Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html) in the **ECS Service Setup** step of a Workflow.
 
-[![](./static/ecs-auto-scaling-00.png)
-](./static/ecs-auto-scaling-00.png)
+[![](./static/ecs-auto-scaling-00.png)](./static/ecs-auto-scaling-00.png)
+
 1. In a Workflow with the **ECS Service Setup** step, open the **ECS Service Setup** step.
 2. In **Auto Scaler Configurations**, the Auto Scaling property fields appear.
 

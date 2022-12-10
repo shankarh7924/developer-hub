@@ -1,7 +1,7 @@
 ---
 title: What Can I Deploy in Kubernetes?
 description: In Harness, a managed Kubernetes workload is a Deployment, StatefulSet, or DaemonSet object deployed and managed to steady state. Harness Canary and Blue/Green Workflow default steps support a single…
-# sidebar_position: 2
+sidebar_position: 30
 helpdocs_topic_id: 6ujb3c70fh
 helpdocs_category_id: yp3yaavhla
 helpdocs_is_private: false
