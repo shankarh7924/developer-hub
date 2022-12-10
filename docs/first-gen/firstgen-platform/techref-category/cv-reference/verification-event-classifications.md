@@ -1,20 +1,12 @@
 ---
 title: Verification Event Classifications
 description: Learn about how Harness classifies verification events.
-# sidebar_position: 2
+sidebar_position: 10
 helpdocs_topic_id: 339hy0kbnu
 helpdocs_category_id: ugsf6ny1bk
 helpdocs_is_private: false
 helpdocs_is_published: true
 ---
-
-This topic covers the following classifications of verification events, and related options:
-
-* [Known Event](verification-event-classifications.md#known-event)
-* [Not a Risk](verification-event-classifications.md#not-a-risk)
-* [Anomalous Events](verification-event-classifications.md#anomalous-events)
-* [Priority Events](verification-event-classifications.md#priority-events)
-* [Auditing Event Prioritization](verification-event-classifications.md#auditing-event-prioritization)
 
 For an overview of verification feedback, and steps on applying and changing an event's classification, see:
 

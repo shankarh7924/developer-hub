@@ -1,7 +1,7 @@
 ---
 title: Secrets and Log Sanitization (FirstGen)
 description: This content is for Harness FirstGen. Switch to NextGen. Harness sanitizes deployment logs and any script outputs to mask text secret values. First, let's review secrets in Harness, and then look at…
-# sidebar_position: 2
+sidebar_position: 10
 helpdocs_topic_id: o5ec7vvtju
 helpdocs_category_id: zzl3fqee2p
 helpdocs_is_private: false
