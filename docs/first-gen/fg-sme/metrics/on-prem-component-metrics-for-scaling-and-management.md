@@ -16,9 +16,8 @@ This topic provides guidance on scaling Harness Self-Managed Enterprise Edition 
 
 ### Summary
 
-|  |  |  |
-| --- | --- | --- |
 | **Test** | **Configuration** | **Result** |
+| --- | --- | --- |
 | Workflow Setup - Timeseries (APM) | 1 instance - 4CPU and 2GB Memory | 20 parallel workflow executions can run without delay |
 | Workflow Setup - Log Analysis | 1 instance - 4CPU and 2GB Memory | 6 parallel workflow executions can run without delay |
 | 24/7 Service Guard Setup - Timeseries (APM) | 1 instance - 4CPU and 2GB Memory | 30 24/7 Service Guard configs can be supported |
@@ -47,7 +46,7 @@ This topic provides guidance on scaling Harness Self-Managed Enterprise Edition 
 #### Scenario 2
 
 * **Configuration**: 1 LE instance with 8CPU and 2GB Memory
-* **Workflow setup** : 4 time series 5 Log analysis running in parallel every 20 minutes
+* **Workflow setup**: 4 time series 5 Log analysis running in parallel every 20 minutes
 * **24/7** **Service Guard Setup**: 4 time series 5 Log analysis
 
 **Result**
