@@ -170,7 +170,7 @@ You can retrieve the information required to triage and resolve most failure con
 |  |  |  |
 | --- | --- | --- |
 | **To check** | **Use** `**kubectl**` **command** | **To resolve** |
-| **Delegate pod status** | `kubectl describe pods -n <namespace>``kubectl describe pod <podname>``kubectl describe pod_name -n <namespace>` | Check to ensure the pod is ready and available.Check pod status to confirm that the Delegate pod was scheduled to a node and is running.Resolve issues that keep pods in Pending or Waiting status.If the state of the pod is `CrashLoopBackoff.Kubernetes Cluster Resources are not available`, increase the cluster resources for CPU units and memory.See [Debug Pods](https://kubernetes.io/docs/home/) in [Kubernetes Documentation](https://kubernetes.io/docs/home/). |
+| **Delegate pod status** | `kubectl describe pods -n <namespace>``kubectl describe pod <podname>``kubectl describe pod_name -n <namespace>` | Check to ensure the pod is ready and available. Check pod status to confirm that the Delegate pod was scheduled to a node and is running. Resolve issues that keep pods in Pending or Waiting status. If the state of the pod is `CrashLoopBackoff.Kubernetes Cluster Resources are not available`, increase the cluster resources for CPU units and memory. See [Debug Pods](https://kubernetes.io/docs/home/) in [Kubernetes Documentation](https://kubernetes.io/docs/home/). |
 | **Delegate logs** | `kubectl logs -f <harnessDelegateName> -n <namespace>` | Examine the logs for the namespace.See [Troubleshooting Clusters](https://kubernetes.io/docs/tasks/debug/debug-cluster/) in [Kubernetes Documentation](https://kubernetes.io/docs/home/). |
 
 When the issue is resolved, apply the Delegate YAML a second time.
