@@ -6,9 +6,11 @@ tags:
 sidebar_position: 30
 ---
 
-This topic provides settings to Build and Push an image to [Azure Container Registry](https://azure.microsoft.com/en-us/free/container-registry/) (GCR).
+This topic provides settings to build and push an image to [Azure Container Registry](https://azure.microsoft.com/en-us/free/container-registry/) (ACR).
 
-The following steps build an image and push it to GCR.
+:::note
+This step is supported on Kubernetes build infrastructures only.
+:::
 
 ### Before You Begin
 
@@ -53,7 +55,9 @@ The target repository where you want to push your artifacts. This field needs to
 
 #### Subscription Id
 
-Name or ID of your ACR subscription. You can configure the default subscription using az account set -s NAME_OR_ID.
+Name or ID of your ACR subscription. To configure the default subscription, enter the following CLI command:  `az account set -s NAME_OR_ID`
+
+You need to specify the subscription ID if you want to see your artifact in the **Artifacts** tab of the Build UI. 
 
 <!-- TBD need more info. When would you want to specify this? What is it useful for? -->
 
