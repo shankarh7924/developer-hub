@@ -24,6 +24,7 @@ The length of the grace period is configurable and depends on whether the delega
 The event that initiates the graceful shutdown depends on delegate type.
 
 | **Delegate environment** | **Trigger** |
+| :-- | :-- |
 | Kubernetes | Pod termination, eviction, or user-initiated scaling |
 | Docker | `docker kill` command |
 | Shell | `./stop.sh` instruction |
