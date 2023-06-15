@@ -89,7 +89,7 @@ To create a new change source, do the following:
 
 2. In the **Provider Type** dropdown list, select the change source. Following are the available options:  
 
-    - **Deployments**: You can choose **Harness CD NextGen** or **Harness CD**. 
+    - **Deployments**: You can choose **Harness CD** or **Custom**. Note that Harness CD NextGen is automatically configured without any selection.
     - **Incident**: Select the incident management tool that monitors your application.
 
 3. In the **Source Name** field, enter a name for the change source.
